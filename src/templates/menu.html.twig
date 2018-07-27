@@ -1,0 +1,7 @@
+<nav>
+    <ul>
+        {% for menuText, menuLink in menuItems %}
+            <li><a href="{{ menuLink }}">{{ menuText }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>

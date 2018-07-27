@@ -1,0 +1,19 @@
+{
+  "name": "agiesinger/test123",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Adam Giesinger",
+      "email": "adam.giesinger@namics.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Guestbook\\Core\\": "src/php"
+    }
+  },
+  "require": {
+    "symfony/symfony": "^4.1",
+    "twig/twig": "^2.0"
+  }
+}

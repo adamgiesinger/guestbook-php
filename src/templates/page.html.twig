@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    {% for headElem in headElems %}
+        {{ headElem|raw }}
+    {% endfor %}
+</head>
+<body>
+{{ menu|raw }}
+{{ document|raw }}
+</body>
+</html>

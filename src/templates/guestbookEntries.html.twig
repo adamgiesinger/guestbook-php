@@ -1,0 +1,6 @@
+<div class="guestbookEntry">
+    {% for entry in entries %}
+        <b>{{ entry.author }}</b> <i>schrieb am {{ entry.time|date("d-m-Y") }} um {{ entry.time|date("h:i") }} Uhr:</i><br>
+        {{ entry.message }}<br><hr>
+    {% endfor %}
+</div>
