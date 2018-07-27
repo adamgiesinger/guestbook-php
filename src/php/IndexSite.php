@@ -7,7 +7,7 @@ use Twig_Loader_Filesystem;
 use Twig_Environment;
 
 
-class Guestbook
+class IndexSite
 {
 
     public static function getPosts()
@@ -23,26 +23,26 @@ class Guestbook
 
     public static function showPosts()
     {
-        require_once "TwigEnvironmentLoader.php";
-        $twig = new TwigEnvironmentLoader("guestbook");
+        $twig = new TwigEnvironmentLoader("indexSite");
         $twigMain = new TwigEnvironmentLoader();
         $rows = self::getPosts();
 
+        $indexSiteSection = "";
         try {
-            $guestbookEntries = $twig->render('guestbookEntries.html.twig', [
-                "entries" => $rows]);
-
-            $guestbookSection = $twig->render('guestbook.html.twig', [
-                "guestbookEntries" => $guestbookEntries
+            $indexSiteSection = $twig->render('indexSite.html.twig', [
             ]);
+        } catch (\Twig_Error_Loader $e) {
+        } catch (\Twig_Error_Runtime $e) {
+        } catch (\Twig_Error_Syntax $e) {
+        }
 
-
-            $page = "";
+        $page = "";
+        try {
             $page = $twigMain->render('page.html.twig', [
                 "headElems" => [
-                    "<title>Gästebuch</title>"
+                    "<title>Startseite</title>"
                 ],
-                "document" => $guestbookSection,
+                "document" => $indexSiteSection,
                 "menu" => SideNav::getMenu()
             ]);
         } catch (\Twig_Error_Loader $e) {

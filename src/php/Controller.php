@@ -22,10 +22,10 @@ class Controller
         $query = $request->query->get("q");
 
         if (strtolower($query) == "index") {
-            $page = Guestbook::showPosts();
-            $response->setContent("Index");
+            $page = IndexSite::showPosts();
+            $response->setContent($page);
             $response->setStatusCode(200);
-        } elseif (strtolower($query) == "gaestebuch") {
+        } elseif (strtolower($query) == "guestbook") {
             $page = Guestbook::showPosts();
             $response->setContent($page);
             $response->setStatusCode(200);

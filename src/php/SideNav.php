@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class GuestbookMenu
+class SideNav
 {
     private static function getMenuItems()
     {
@@ -23,7 +23,8 @@ class GuestbookMenu
     {
         $menu = "";
         try {
-            require "twig.php";
+            require_once "TwigEnvironmentLoader.php";
+            $twig = new TwigEnvironmentLoader();
             $menu = $twig->render('menu.html.twig', [
                 "menuItems" => self::getMenuItems()
             ]);
