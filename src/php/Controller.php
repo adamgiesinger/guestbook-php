@@ -17,24 +17,32 @@ class Controller
 
     public function handle($request)
     {
+        exec("rm -rf /Users/agiesinger/twig-cache/");
+
         $response = new Response();
 
         $query = $request->query->get("q");
 
         if (strtolower($query) == "index") {
-            $page = IndexSite::showPosts();
+            $page = IndexPage::showPosts();
             $response->setContent($page);
             $response->setStatusCode(200);
         } elseif (strtolower($query) == "guestbook") {
             $page = Guestbook::showPosts();
             $response->setContent($page);
             $response->setStatusCode(200);
+        } elseif (strtolower($query) == "about") {
+            $page = AboutPage::showPage();
+            $response->setContent($page);
+            $response->setStatusCode(200);
+        } elseif (strtolower($query) == "contact") {
+            $page = ContactPage::showPage();
+            $response->setContent($page);
+            $response->setStatusCode(200);
         } else {
             $response->setContent("404");
             $response->setStatusCode(404);
         }
-
-
 
         $response->headers->set("Content-Type", "text/html");
         return $response;

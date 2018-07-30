@@ -3,29 +3,18 @@
 
 namespace Guestbook\Core;
 
-class IndexSite
+class AboutPage
 {
 
-    public static function getPosts()
+    public static function showPage()
     {
-        $rows = [];
-        require_once "db.php";
-        $result = $conn->query("SELECT * FROM posts");
-        while ($row = $result->fetch()) {
-            $rows[] = $row;
-        }
-        return $rows;
-    }
-
-    public static function showPosts()
-    {
-        $twig = new TwigEnvironmentLoader("indexSite");
+        $twig = new TwigEnvironmentLoader("aboutPage");
         $twigMain = new TwigEnvironmentLoader();
-        $rows = self::getPosts();
 
-        $indexSiteSection = "";
+        $aboutPageSection = "";
         try {
-            $indexSiteSection = $twig->render('indexSite.html.twig', [
+            $aboutPageSection = $twig->render('aboutPage.html.twig', [
+                "aboutText" => "Hier sind Informationen über diese Seite, wie zum Beispiel der Zweck der Webseite. Dieser Text kann beliebig angepasst werden."
             ]);
         } catch (\Twig_Error_Loader $e) {
         } catch (\Twig_Error_Runtime $e) {
@@ -36,9 +25,9 @@ class IndexSite
         try {
             $page = $twigMain->render('page.html.twig', [
                 "headElems" => [
-                    "<title>Startseite</title>"
+                    "<title>Über uns</title>"
                 ],
-                "document" => $indexSiteSection,
+                "document" => $aboutPageSection,
                 "menu" => SideNav::getMenu()
             ]);
         } catch (\Twig_Error_Loader $e) {
