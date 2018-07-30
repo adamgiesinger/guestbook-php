@@ -16,3 +16,17 @@ h2 {
     width: 40%;
     margin: 1% 30%;
 }
+
+.contactWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.contactInfo {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.contactInfo img {
+    width: 50%;
+}

@@ -1,6 +1,11 @@
-<div class="contactInfo">
-    <img src="../img/{{ imageSrc }}">
-    {{ fullName }}<br>
-    {{ emailAddress }}<br>
-    {{ phoneNumber }}<br>
+<div class="contactWrapper">
+    {% for person in people %}
+    <div class="contactInfo">
+        <b>{{ person.location }}</b><br>
+        <img src="../img/people/{{ person.firstName | lower }}-{{ person.lastName | lower }}.jpg"><br>
+        {{ person.firstName }} {{ person.lastName }}<br>
+        <a href="mailto:{{ person.emailAddress }}">{{ person.emailAddress }}</a><br>
+        {{ person.phoneNumber }}<br>
+    </div>
+    {% endfor %}
 </div>

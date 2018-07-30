@@ -6,13 +6,15 @@ namespace Guestbook\Core;
 class ContactPage
 {
 
-    public static function getContactData() {
+    public static function getContactData()
+    {
+        $rows = [];
         require_once "db.php";
         $result = $conn->query("SELECT * FROM contactInfo");
         while ($row = $result->fetch()) {
-            return $row;
+            $rows[] = $row;
         }
-        return [];
+        return $rows;
     }
 
     public static function showPage()
@@ -20,31 +22,16 @@ class ContactPage
         $twig = new TwigEnvironmentLoader("contactPage");
         $twigMain = new TwigEnvironmentLoader();
 
-        $row = self::getContactData();
-        $contactForm = "";
+        $rows = self::getContactData();
         try {
             $contactForm = $twig->render('contactForm.html.twig', [
-                "fullName" => $row["fullName"],
-                "phoneNumber" => $row["phoneNumber"],
-                "emailAddress" => $row["emailAddress"]
+                "people" => $rows
             ]);
-        } catch (\Twig_Error_Loader $e) {
-        } catch (\Twig_Error_Runtime $e) {
-        } catch (\Twig_Error_Syntax $e) {
-        }
 
-        $contactPageSection = "";
-        try {
             $contactPageSection = $twig->render('contactPage.html.twig', [
                 "contactForm" => $contactForm
             ]);
-        } catch (\Twig_Error_Loader $e) {
-        } catch (\Twig_Error_Runtime $e) {
-        } catch (\Twig_Error_Syntax $e) {
-        }
 
-        $page = "";
-        try {
             $page = $twigMain->render('page.html.twig', [
                 "headElems" => [
                     "<title>Über uns</title>"
