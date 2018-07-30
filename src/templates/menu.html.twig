@@ -1,7 +1,8 @@
 <nav>
     <ul>
+        <li><a href="index.php?q=index"><img src="../img/logo/{{ logoSrc }}" alt="logo"></a></li>
         {% for menuText, menuLink in menuItems %}
-            <li><a href="{{ menuLink }}">{{ menuText }}</a></li>
+            <li class="menuItem"><a href="{{ menuLink }}">{{ menuText }}</a></li>
         {% endfor %}
     </ul>
 </nav>

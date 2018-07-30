@@ -6,18 +6,25 @@ ul {
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
     list-style-type: none;
     background: #c8c8c8;
+    height: 50px;
 }
 
-li {
+li.menuItem {
     padding: 1%;
 }
 
-li a {
+li.menuItem a {
     color: #000000;
     text-decoration: none;
     font-family: Roboto, sans-serif;
     font-weight: bold;
     font-size: 17px;
+}
+
+li a img {
+    height: 40px;
+    padding: 5px;
 }

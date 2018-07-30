@@ -6,22 +6,10 @@ namespace Guestbook\Core;
 class IndexPage
 {
 
-    public static function getPosts()
-    {
-        $rows = [];
-        require_once "db.php";
-        $result = $conn->query("SELECT * FROM posts");
-        while ($row = $result->fetch()) {
-            $rows[] = $row;
-        }
-        return $rows;
-    }
-
     public static function showPosts()
     {
         $twig = new TwigEnvironmentLoader("indexPage");
         $twigMain = new TwigEnvironmentLoader();
-        $rows = self::getPosts();
 
         $indexSiteSection = "";
         try {

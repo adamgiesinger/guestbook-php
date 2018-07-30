@@ -19,12 +19,12 @@ h2 {
 
 .contactWrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .contactInfo {
-    flex-grow: 1;
-    flex-basis: 0;
+    font-family: sans-serif;
+    flex: 1;
 }
 
 .contactInfo img {

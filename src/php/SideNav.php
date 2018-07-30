@@ -26,6 +26,7 @@ class SideNav
             require_once "TwigEnvironmentLoader.php";
             $twig = new TwigEnvironmentLoader();
             $menu = $twig->render('menu.html.twig', [
+                "logoSrc" => "logo.png",
                 "menuItems" => self::getMenuItems()
             ]);
             return $menu;
