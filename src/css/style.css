@@ -30,3 +30,10 @@ h2 {
 .contactInfo img {
     width: 50%;
 }
+
+aside {
+    overflow: scroll;
+    width: 20%;
+    float: right;
+    padding-right: 1%;
+}
