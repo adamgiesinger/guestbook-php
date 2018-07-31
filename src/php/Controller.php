@@ -11,9 +11,7 @@ error_reporting(E_ALL);
 class Controller
 {
 
-    public function __construct($autoloader)
-    {
-    }
+    public function __construct() {}
 
     public function handle($request)
     {

@@ -14,6 +14,7 @@ class Guestbook
         while ($row = $result->fetch()) {
             $rows[] = $row;
         }
+        $rows = array_reverse($rows);
         return $rows;
     }
 
@@ -39,7 +40,8 @@ class Guestbook
                     "<title>Gästebuch</title>"
                 ],
                 "document" => $guestbookSection,
-                "menu" => SideNav::getMenu()
+                "menu" => SideNav::getMenu(),
+                "feed" => TwitterFeed::getFeed()
             ]);
         } catch (\Twig_Error_Loader $e) {
         } catch (\Twig_Error_Runtime $e) {

@@ -1,4 +1,13 @@
 <h2>Gästebuch</h2>
+<form action="php/addGuestbookEntry.php" method="post" class="guestbookForm">
+    <label for="fullName">Name: </label>
+    <input type="text" name="fullName" id="fullName">
+    <br>
+    <label for="message">Nachricht: </label>
+    <textarea name="message" id="message" rows="4" cols="40"></textarea>
+    <br>
+    <input type="submit">
+</form>
 <div class="guestbook">
     {{ guestbookEntries|raw }}
 </div>

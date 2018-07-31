@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 $autoloader = require_once "autoload.php";
 
-$controller = new Controller($autoloader);
+$controller = new Controller();
 
 $request = Request::createFromGlobals();
 $response = $controller->handle($request);

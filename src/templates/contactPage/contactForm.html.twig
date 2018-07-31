@@ -1,5 +1,4 @@
-<div class="contactWrapper">
-    {% for person in people %}
+{% for person in people %}
     <div class="contactInfo">
         <b>{{ person.location }}</b><br>
         <img src="../img/people/{{ person.firstName | lower }}-{{ person.lastName | lower }}.jpg"><br>
@@ -7,5 +6,4 @@
         <a href="mailto:{{ person.emailAddress }}">{{ person.emailAddress }}</a><br>
         {{ person.phoneNumber }}<br>
     </div>
-    {% endfor %}
-</div>
+{% endfor %}
