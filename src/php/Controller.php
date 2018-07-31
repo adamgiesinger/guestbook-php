@@ -42,7 +42,7 @@ class Controller
             $response->setStatusCode(404);
         }
 
-        $response->headers->set("Content-Type", "text/html");
+        $response->headers->set("Content-Typy", "text/html");
         return $response;
     }
 
