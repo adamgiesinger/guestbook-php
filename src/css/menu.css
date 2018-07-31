@@ -1,3 +1,5 @@
+/* #05386B, #379683, #5CDB95, #8EE4AF, #EDF5E1 */
+
 nav {
     width: 100%;
 }
@@ -27,4 +29,8 @@ li.menuItem a {
 li a img {
     height: 40px;
     padding: 5px;
+}
+
+li.menuItem.activeMenuItem a {
+    color: #05386B;
 }

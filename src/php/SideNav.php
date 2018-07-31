@@ -19,7 +19,7 @@ class SideNav
         return $menuLinks;
     }
 
-    public static function getMenu()
+    public static function getMenu($active)
     {
         $menu = "";
         try {
@@ -27,6 +27,7 @@ class SideNav
             $twig = new TwigEnvironmentLoader();
             $menu = $twig->render('menu.html.twig', [
                 "logoSrc" => "logo.png",
+                "active" => $active,
                 "menuItems" => self::getMenuItems()
             ]);
             return $menu;

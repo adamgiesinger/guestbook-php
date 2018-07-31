@@ -27,7 +27,7 @@ class IndexPage
                     "<title>Startseite</title>"
                 ],
                 "document" => $indexSiteSection,
-                "menu" => SideNav::getMenu(),
+                "menu" => SideNav::getMenu("index.php?q=index"),
                 "feed" => TwitterFeed::getFeed()
             ]);
         } catch (\Twig_Error_Loader $e) {

@@ -37,7 +37,7 @@ class ContactPage
                     "<title>Über uns</title>"
                 ],
                 "document" => $contactPageSection,
-                "menu" => SideNav::getMenu(),
+                "menu" => SideNav::getMenu("index.php?q=contact"),
                 "feed" => TwitterFeed::getFeed()
             ]);
         } catch (\Twig_Error_Loader $e) {

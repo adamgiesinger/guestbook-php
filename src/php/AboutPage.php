@@ -28,7 +28,7 @@ class AboutPage
                     "<title>Über uns</title>"
                 ],
                 "document" => $aboutPageSection,
-                "menu" => SideNav::getMenu(),
+                "menu" => SideNav::getMenu("index.php?q=about"),
                 "feed" => TwitterFeed::getFeed()
             ]);
         } catch (\Twig_Error_Loader $e) {

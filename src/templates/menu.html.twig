@@ -2,7 +2,11 @@
     <ul>
         <li><a href="index.php?q=index"><img src="../img/logo/{{ logoSrc }}" alt="logo"></a></li>
         {% for menuText, menuLink in menuItems %}
-            <li class="menuItem"><a href="{{ menuLink }}">{{ menuText }}</a></li>
+            {% if menuLink == active %}
+                <li class="menuItem activeMenuItem"><a href="{{ menuLink }}">{{ menuText }}</a></li>
+            {% else %}
+                <li class="menuItem"><a href="{{ menuLink }}">{{ menuText }}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
 </nav>

@@ -40,7 +40,7 @@ class Guestbook
                     "<title>Gästebuch</title>"
                 ],
                 "document" => $guestbookSection,
-                "menu" => SideNav::getMenu(),
+                "menu" => SideNav::getMenu("index.php?q=guestbook"),
                 "feed" => TwitterFeed::getFeed()
             ]);
         } catch (\Twig_Error_Loader $e) {
